@@ -60,8 +60,20 @@ def valid_moves(board):
     return ret
     pass
 
-# Step 6 - four_in_a_row_horizontal (not yet solved)
-# TODO: implement
+# Step 6 - four_in_a_row_horizontal
+def four_in_a_row_horizontal(board):
+    # Four shifted views: columns c, c+1, c+2, c+3 for every c in 0..3
+    a = board[:, 0:4]
+    b = board[:, 1:5]
+    c = board[:, 2:6]
+    d = board[:, 3:7]
+
+    wins = (a != 0) & (a == b) & (b == c) & (c == d)   # shape (6, 4)
+
+    if wins.any():
+        r, col = np.argwhere(wins)[0]   # first winning window, scanning row by row
+        return int(board[r, col])
+    return 0
 
 # Step 7 - four_in_a_row_vertical (not yet solved)
 # TODO: implement
