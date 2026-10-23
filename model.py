@@ -89,11 +89,33 @@ def four_in_a_row_vertical(board):
         return int(board[r, col])
     return 0
 
-# Step 8 - four_in_a_row_diagonal_down_right (not yet solved)
-# TODO: implement
+# Step 8 - four_in_a_row_diagonal_down_right
+def four_in_a_row_diagonal_down_right(board):
+    a = board[0:3, 0:4]   # start cell of each window
+    b = board[1:4, 1:5]   # one down, one right
+    c = board[2:5, 2:6]
+    d = board[3:6, 3:7]
 
-# Step 9 - four_in_a_row_diagonal_up_right (not yet solved)
-# TODO: implement
+    wins = (a != 0) & (a == b) & (b == c) & (c == d)   # shape (3, 4)
+
+    if wins.any():
+        r, col = np.argwhere(wins)[0]
+        return int(a[r, col])
+    return 0
+
+# Step 9 - four_in_a_row_diagonal_up_right
+def four_in_a_row_diagonal_down_right(board):
+    a = board[0:3, 0:4]   # start cell of each window
+    b = board[1:4, 1:5]   # one down, one right
+    c = board[2:5, 2:6]
+    d = board[3:6, 3:7]
+
+    wins = (a != 0) & (a == b) & (b == c) & (c == d)   # shape (3, 4)
+
+    if wins.any():
+        r, col = np.argwhere(wins)[0]
+        return int(a[r, col])
+    return 0
 
 # Step 10 - check_winner (not yet solved)
 # TODO: implement
