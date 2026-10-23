@@ -127,8 +127,13 @@ def check_winner(board):
     four_in_a_row_diagonal_down_right(board), four_in_a_row_diagonal_up_right(board))
     pass
 
-# Step 11 - board_is_full (not yet solved)
-# TODO: implement
+# Step 11 - board_is_full
+def board_is_full(board):
+    # TODO: return True when no column has an empty slot left
+    if valid_moves(board) == []:
+        return True
+    return False
+    pass
 
 # Step 12 - is_terminal (not yet solved)
 # TODO: implement
