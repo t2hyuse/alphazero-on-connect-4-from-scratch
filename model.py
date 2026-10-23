@@ -150,10 +150,7 @@ def is_terminal(board):
 
 # Step 13 - other_player
 def other_player(player):
-    # TODO: return the opponent's player code (1 <-> 2)
-    if player == 1:
-        return 2
-    return 1
+    return 3 - player  
     pass
 
 # Step 14 - step_env
@@ -166,7 +163,7 @@ def step_env(board, column, player):
 
 # Step 15 - encode_board
 def encode_board(board, current_player):
-    opponent = 3 - current_player            # 1 <-> 2
+    opponent = other_player(current_player)          # 1 <-> 2
     mine = (board == current_player)
     theirs = (board == opponent)
     return np.stack([mine, theirs]).astype(np.float32)
