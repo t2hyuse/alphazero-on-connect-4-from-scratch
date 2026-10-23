@@ -156,8 +156,13 @@ def other_player(player):
     return 1
     pass
 
-# Step 14 - step_env (not yet solved)
-# TODO: implement
+# Step 14 - step_env
+def step_env(board, column, player):
+    # TODO: drop piece for player, then return (new_board, done, winner, next_player).
+    new = drop_piece(board, column, player)
+    stat, win = is_terminal(new)
+    return new, stat, win, other_player(player)
+    pass
 
 # Step 15 - encode_board (not yet solved)
 # TODO: implement
