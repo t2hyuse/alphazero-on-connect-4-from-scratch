@@ -164,8 +164,12 @@ def step_env(board, column, player):
     return new, stat, win, other_player(player)
     pass
 
-# Step 15 - encode_board (not yet solved)
-# TODO: implement
+# Step 15 - encode_board
+def encode_board(board, current_player):
+    opponent = 3 - current_player            # 1 <-> 2
+    mine = (board == current_player)
+    theirs = (board == opponent)
+    return np.stack([mine, theirs]).astype(np.float32)
 
 # Step 16 - board_to_torch_tensor (not yet solved)
 # TODO: implement
