@@ -174,8 +174,18 @@ def board_to_torch_tensor(board, current_player):
     return torch.unsqueeze(torch.from_numpy(encode_board(board, current_player)), 0)
     pass
 
-# Step 17 - init_conv_backbone (not yet solved)
-# TODO: implement
+# Step 17 - init_conv_backbone
+import torch.nn as nn
+
+
+def init_conv_backbone(in_channels=2, hidden_channels=16):
+    # Two 3x3 convs with padding=1 preserve the 6x7 spatial shape.
+    return nn.Sequential(
+        nn.Conv2d(in_channels, hidden_channels, kernel_size=3, padding=1),
+        nn.ReLU(),
+        nn.Conv2d(hidden_channels, hidden_channels, kernel_size=3, padding=1),
+        nn.ReLU(),
+    )
 
 # Step 18 - init_policy_head (not yet solved)
 # TODO: implement
