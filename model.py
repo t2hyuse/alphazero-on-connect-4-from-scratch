@@ -104,11 +104,11 @@ def four_in_a_row_diagonal_down_right(board):
     return 0
 
 # Step 9 - four_in_a_row_diagonal_up_right
-def four_in_a_row_diagonal_down_right(board):
-    a = board[0:3, 0:4]   # start cell of each window
-    b = board[1:4, 1:5]   # one down, one right
-    c = board[2:5, 2:6]
-    d = board[3:6, 3:7]
+def four_in_a_row_diagonal_up_right(board):
+    a = board[3:6, 0:4]   # start cell (bottom-left of the window)
+    b = board[2:5, 1:5]   # one up, one right
+    c = board[1:4, 2:6]
+    d = board[0:3, 3:7]
 
     wins = (a != 0) & (a == b) & (b == c) & (c == d)   # shape (3, 4)
 
